@@ -1,4 +1,4 @@
-He developed an algorithm for approximate numerical solution of differential equations using evolutionary modeling methods. The main task was to find a function (in the form of an approximation) that best satisfies a given differential equation and initial conditions.
+Developed an algorithm for approximate numerical solution of differential equations using evolutionary modeling methods. The main task was to find a function (in the form of an approximation) that best satisfies a given differential equation and initial conditions.
 
 Key technologies:
 
