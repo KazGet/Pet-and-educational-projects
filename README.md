@@ -1,19 +1,21 @@
-Developed an algorithm for approximate numerical solution of differential equations using evolutionary modeling methods. The main task was to find a function (in the form of an approximation) that best satisfies a given differential equation and initial conditions.
+This repository contains my projects where genetic algorithms are used to solve various problems involving ordinary differential equations (ODEs) and partial differential equations (PDEs).
 
-Key technologies:
+Included projects:
 
-Python, the DAP library (Distributed Evolutionary Algorithms in Python)
+Classical boundary value problems for second-order ODEs (e.g., Sturm–Liouville problem);
 
-NumPy, Matplotlib
+Solving the wave equation;
 
-Genetic programming: realization of individuals in the form of coefficients of an analytical function
+Approximating solutions to the Black–Scholes equation using polynomial representations and coefficient optimization via genetic algorithms.
 
-Estimating the fitness function by the discrepancy between the derivative and the right-hand side of the equation
+The goal of these projects is to demonstrate how evolutionary algorithms can be used to find approximate solutions to differential equations, especially when analytic methods are difficult or impossible to apply.
 
-Results:
+Technologies used:
 
-A flexible scheme for representing solutions (in the form of parameterized functions) is implemented
+Python (DEAP, NumPy, Matplotlib, etc.);
 
-Visualization of the results and dynamics of the approach is provided
+Genetic algorithms (selection, mutation, crossover);
 
-We are expanding the project to systems of differential equations and problems with boundary conditions.
+Function approximation (Fourier series, polynomials);
+
+Result visualization.
