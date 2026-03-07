@@ -1,21 +1,144 @@
-This repository contains my projects where genetic algorithms are used to solve various problems involving ordinary differential equations (ODEs) and partial differential equations (PDEs).
+📊 MEGAолимпиада 2026 — Финал (ИТМО)
 
-Included projects:
+Аналитика данных | Регрессия стоимости автомобилей
 
-Classical boundary value problems for second-order ODEs (e.g., Sturm–Liouville problem);
+Этот проект основан на финальном задании MEGAолимпиады 2026 от ИТМО по направлению «Аналитика данных».
 
-Solving the wave equation;
+Формат финала предполагал ~3 часа на анализ данных и построение модели. После завершения олимпиады я решил вернуться к задаче и доработать решение уже в полноценном исследовательском формате: с тщательной инженерией признаков, анализом ошибок и подбором гиперпараметров.
 
-Approximating solutions to the Black–Scholes equation using polynomial representations and coefficient optimization via genetic algorithms.
+Цель проекта — не просто получить метрику, а провести осмысленную работу над моделью и разобраться в структуре рынка.
 
-The goal of these projects is to demonstrate how evolutionary algorithms can be used to find approximate solutions to differential equations, especially when analytic methods are difficult or impossible to apply.
+🔗 Ссылка на соревнование
 
-Technologies used:
+Соревнование доступно на Kaggle:
+https://www.kaggle.com/competitions/megaolimpiade-2026/data
 
-Python (DEAP, NumPy, Matplotlib, etc.);
+📂 Описание данных
 
-Genetic algorithms (selection, mutation, crossover);
+Датасет содержит объявления о продаже автомобилей на российской площадке.
 
-Function approximation (Fourier series, polynomials);
+Каждая строка — отдельное объявление.
 
-Result visualization.
+Целевая переменная
+
+price_rub — цена автомобиля в рублях.
+
+Основные признаки
+
+mark — производитель
+
+model — модель
+
+generation — поколение
+
+configuration, complectation — комплектация
+
+body_type — тип кузова
+
+displacement — объём двигателя
+
+horse_power — мощность
+
+engine_type — тип двигателя
+
+drive_type — тип привода
+
+transmission — тип трансмиссии
+
+km_age — пробег
+
+year — год выпуска
+
+owners_count — количество владельцев
+
+region, city — география
+
+текстовые поля: options, description
+
+Файлы:
+
+train.csv — тренировочный набор
+
+test.csv — тестовый набор
+
+sample_submission.csv — пример сабмита
+
+🛠 Подход к решению
+1️⃣ Предобработка
+
+Логарифмирование целевой переменной
+
+Обработка пропусков
+
+Работа с категориальными признаками
+
+Очистка аномалий
+
+2️⃣ Feature Engineering
+
+Были добавлены производные признаки:
+
+car_age — возраст автомобиля
+
+specific_power — удельная мощность (hp / displacement)
+
+взаимодействия мощности и возраста
+
+признаки, отражающие структуру регионального рынка
+
+признаки, извлечённые из комплектации
+
+Основной акцент был сделан на экономическую интерпретацию признаков, а не на их количество.
+
+3️⃣ Модель
+
+Использовался CatBoost с GPU-обучением.
+
+Подбор гиперпараметров выполнялся с помощью Optuna.
+
+📈 Результаты
+
+Итоговый MAE: 241 570 руб.
+Средняя цена в валидации: 1 570 479 руб.
+Относительная ошибка: ~15.4%
+
+
+🔝 Топ-10 наиболее важных признаков
+
+| Feature        | Importance |
+| -------------- | ---------- |
+| car_age        | 19.96      |
+| horse_power    | 13.80      |
+| mark           | 9.88       |
+| model          | 5.33       |
+| generation     | 5.04       |
+| displacement   | 3.21       |
+| body_type      | 3.17       |
+| specific_power | 3.08       |
+| km_age         | 3.07       |
+| region         | 3.02       |
+
+Модель в первую очередь опирается на:
+
+возраст автомобиля
+мощность
+бренд и модель
+региональные различия
+
+🔎 Анализ ошибок
+
+Дополнительно было проведено исследование распределения ошибок.
+
+Модель демонстрирует стабильную работу в массовом сегменте, при этом основные отклонения возникают в дорогом и редком сегменте автомобилей, что типично для задач вторичного рынка.
+
+📌 Выводы
+
+Этот проект стал возможностью:
+
+углубить понимание feature engineering для табличных данных
+поработать с региональной сегментацией рынка
+проанализировать поведение модели в хвостах распределения
+системно подойти к подбору гиперпараметров
+Несмотря на ограниченное время финала, полноценная доработка позволила превратить олимпиадное задание в полноценный исследовательский проект.
+
+

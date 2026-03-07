@@ -1,0 +1,13 @@
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data (если данные большие или чувствительные)
+data/raw/*.csv
+data/raw/*.xlsx
+
+# Environment
+.venv/
